@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ information?.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-fab horizontal="center" vertical="bottom" slot="fixed">
+    <ion-fab-button color="secondary" (click)="waterPlant(information.motor)">
+      <ion-icon name="water-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button color="light" (click)="presentModal(information.name)">
+      <ion-icon name="thermometer-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+  <ion-card *ngIf="information">
+    <ion-card-header>
+      <ion-card-title>
+        {{ information.species }}
+      </ion-card-title>
+      <ion-card-subtitle>
+        {{information.name}}
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content text-center>
+      <ion-item lines="none">
+        <ion-icon name="water-outline" slot="start"></ion-icon>
+        <ion-label text-wrap>{{ information.water }}</ion-label>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-icon name="sunny-outline" slot="start"></ion-icon>
+        <ion-label>{{ information.light }}</ion-label>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-icon name="build-outline" slot="start"></ion-icon>
+        <ion-label text-wrap>{{ information.motor }}</ion-label>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label>{{ moisture?.docs }}</ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

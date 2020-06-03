@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+      </ion-buttons>
+    <ion-title>Add plant</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+        <ion-card-content>
+            Search for a plant in the database or add the plant manually
+        </ion-card-content>
+        <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="searchChanged($event)"></ion-searchbar>
+        <ion-card-content>
+            <ion-button routerLink="/add-plant-details">Add plant manually</ion-button>
+        </ion-card-content>
+    </ion-card>
+
+  <ion-list>
+
+    <ion-item button *ngFor="let item of (results | async)">
+     <ion-label text-wrap>
+        <h3>{{ item.common_name }}</h3>
+        {{ item.is_main_species }}
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

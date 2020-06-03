@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add plant details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form>
+        <ion-item>
+          <ion-input type="text" [(ngModel)]="newPlant.name" placeholder="Name plant" name="name" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" [(ngModel)]="newPlant.species" placeholder="Species" name="species"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="number" [(ngModel)]="newPlant.water" placeholder="Specify water needs" name="water" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="number" [(ngModel)]="newPlant.light" placeholder="Specify light needs" name="light"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input [(ngModel)]="newPlant.motor" placeholder="Connected motor pin" name="motor" required></ion-input>
+        </ion-item>
+      </form>
+      <ion-item>
+        <ion-button ion-button (click)="sendPostRequest()">Post Data</ion-button>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

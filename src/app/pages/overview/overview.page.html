@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>My plants</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-fab horizontal="end" vertical="top" slot="fixed" edge>
+    <ion-fab-button color="success" [routerLink]="['/', 'add-plants']">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab horizontal="start" vertical="bottom" slot="fixed">
+    <ion-fab-button color="secondary" (click)="presentModal()">
+      <ion-icon name="water-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab horizontal="center" vertical="bottom" slot="fixed">
+    <ion-fab-button color="danger">
+      <ion-icon name="power-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button color="warning" (click)="presentModal()">
+      <ion-icon name="sunny-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+  <ion-list>
+
+    <ion-item button *ngFor="let item of (plants | async)" [routerLink]="['/', 'plants', item._id]">
+      <ion-label text-wrap>
+        <h2>{{ item.species }}</h2>
+        <h3>{{ item.name }}</h3>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+</ion-content>
